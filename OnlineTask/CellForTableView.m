@@ -18,25 +18,29 @@
         // configure control(s)
         
         
-        self.imageForTitle = [[UIImageView alloc]initWithFrame:CGRectMake(15, 8, 85, 85)];
+        self.imageForTitle = [[UIImageView alloc]init];
         [self.imageForTitle setTranslatesAutoresizingMaskIntoConstraints:NO];
         [self addSubview:self.imageForTitle];
         [self addContraintsForImageForTitle];
 
-        self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(110, 0, 250, 30)];
+        self.titleLabel = [[UILabel alloc] init];
         self.titleLabel.textColor = [UIColor blackColor];
         [self.titleLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
         
         self.titleLabel.font = [UIFont fontWithName:@"Arial" size:15.0f];
         
-        self.descriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(110, 35, 250, 50)];
+        self.descriptionLabel = [[UILabel alloc] init];
         self.descriptionLabel.textColor = [UIColor blackColor];
-        self.descriptionLabel.font = [UIFont fontWithName:@"Arial" size:15.0f];
+       self.descriptionLabel.font = [UIFont fontWithName:@"Arial" size:10.0f];
         self.descriptionLabel.numberOfLines = 0;
+        
+        
         //self.descriptionLabel.word
         /*
          
+         cell.textLabel.font = [UIFontboldSystemFontOfSize:14];
          
+
          CGSize expectedLabelSize = [yourString sizeWithFont:yourLabel.font constrainedToSize:maximumLabelSize lineBreakMode:yourLabel.lineBreakMode];
          
          //adjust the label the the new height.
@@ -63,7 +67,7 @@
     
     NSLayoutConstraint *lead = [NSLayoutConstraint constraintWithItem:self.imageForTitle attribute:NSLayoutAttributeLeading   relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeading multiplier:1 constant:15];
     
-    NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:self.imageForTitle attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:85];
+    NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:self.imageForTitle attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeHeight multiplier:1 constant:0];
     NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:self.imageForTitle attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:85];
     
     [self addConstraints:@[top, lead,height,width]];
@@ -102,8 +106,6 @@
     NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:self.descriptionLabel attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:200];
     
 
-    
-    
     
     [self addConstraints:@[top,lead,width]];
     

@@ -45,6 +45,11 @@
     
 }
 -(void)makeServiceCall{
+    
+
+    
+    
+    
     NSURLConnectDelegateClass *testclass = [[NSURLConnectDelegateClass alloc]init];
     [testclass fetchURL:[NSURL URLWithString:API_URL] withCompletion:^(NSData *receivedData){
         NSError* error;
@@ -57,11 +62,24 @@
         
         
         dispatch_async(dispatch_get_main_queue(), ^{
+            self.navigationItem.title = parseData.navigationTitle;
             [tableView reloadData];
         });
         
     } failure:^(NSError *error){
-        NSLog(@"%@", error);
+         dispatch_async(dispatch_get_main_queue(), ^{
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Server Error"
+                                                                       message:[NSString stringWithFormat:@"%@",error]
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction * action) {}];
+        
+        [alert addAction:defaultAction];
+             [self presentViewController:alert animated:YES completion:nil];
+        
+         });
+
     }];
 }
 
@@ -74,6 +92,7 @@
 
 -(void)handleRefresh : (id)sender
 {
+    [self makeServiceCall];
     [refreshController endRefreshing];
 }
 
@@ -108,6 +127,7 @@
 - (UITableViewCell *)tableView:(UITableView *)theTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellIdentifier = TABLEVIEW_CELL_ID;
+    RowModelData *dataFromRowArray = _rows [indexPath.row];
 
     // Similar to UITableViewCell, but
     CellForTableView *cell = (CellForTableView *)[theTableView dequeueReusableCellWithIdentifier:cellIdentifier];
@@ -115,20 +135,16 @@
     {
         cell = [[CellForTableView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-    // Just want to test, so I hardcode the data
-//    NSString *descriptionString = [_descriptionArray objectAtIndex:indexPath.row];
+//    NSString *descriptionString = dataFromRowArray.rowDescription ;
 //    CGRect newFrame = cell.descriptionLabel.frame;
 //    newFrame.size.height = [self dynamicHeight:descriptionString :cell.descriptionLabel.font :newFrame :cell.descriptionLabel.lineBreakMode];
 //    cell.descriptionLabel.frame = newFrame;
     
     
-    RowModelData *dataFromRowArray = _rows [indexPath.row];
-    
-    
     cell.descriptionLabel.text = dataFromRowArray.rowDescription;
     cell.titleLabel.text = dataFromRowArray.rowTitle;
     cell.imageView.image = [UIImage imageNamed:@"NoPicAvailable.png"];
-    
+    NSLog(@"BILKOOO %f", cell.descriptionLabel.frame.size.height);
     return cell;
 }
 
@@ -143,9 +159,11 @@
 ////    if(newFrame.size.height >= 50)
 ////        return 100 + newFrame.size.height ;
 ////    else
-        return 100;
-//
+    
+    return 100;
+
 }
+
 
 
 
@@ -156,14 +174,14 @@
     NSLog(@"selected %ld row", (long)indexPath.row);
 }
 
-//-(NSUInteger) dynamicHeight:(NSString *)descriptionString :(UIFont *)font :(CGRect)cellFrame :(NSLineBreakMode)cellLineBreakMode{
-//    CGSize maximumLabelSize = CGSizeMake(296, FLT_MAX);
-//    CGSize expectedLabelSize = [descriptionString sizeWithFont:font constrainedToSize:maximumLabelSize lineBreakMode:cellLineBreakMode];
-//    //adjust the label the the new height.
-//    CGRect newFrame = cellFrame;
-//    newFrame.size.height = expectedLabelSize.height;
-//    return newFrame.size.height;
-//}
+-(NSUInteger) dynamicHeight:(NSString *)descriptionString :(UIFont *)font :(CGRect)cellFrame :(NSLineBreakMode)cellLineBreakMode{
+    CGSize maximumLabelSize = CGSizeMake(296, FLT_MAX);
+    CGSize expectedLabelSize = [descriptionString sizeWithFont:font constrainedToSize:maximumLabelSize lineBreakMode:cellLineBreakMode];
+    //adjust the label the the new height.
+    CGRect newFrame = cellFrame;
+    newFrame.size.height = expectedLabelSize.height;
+    return newFrame.size.height;
+}
 
 @end
 
