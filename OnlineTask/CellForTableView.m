@@ -20,10 +20,11 @@
         
         self.imageForTitle = [[UIImageView alloc]initWithFrame:CGRectMake(15, 8, 85, 85)];
         self.imageForTitle.image = [UIImage imageNamed:@"no_image.png"];
+        self.imageForTitle.backgroundColor = [UIColor blueColor];
         [self.imageForTitle setTranslatesAutoresizingMaskIntoConstraints:NO];
         [self addSubview:self.imageForTitle];
         [self addContraintsForImageForTitle];
-        
+
         self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(110, 0, 250, 30)];
         self.titleLabel.textColor = [UIColor blackColor];
         [self.titleLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
@@ -53,7 +54,7 @@
         
         [self addContraintsForTitleLabel];
         [self addContraintsForDescriptionLabel];
-        
+
     }
     return self;
 }
@@ -69,7 +70,6 @@
     
     [self addConstraints:@[top, lead,height,width]];
     
-    
 }
 
 -(void)addContraintsForTitleLabel
@@ -78,8 +78,8 @@
     
     
     
-    NSLayoutConstraint *lead =    [NSLayoutConstraint constraintWithItem:self.titleLabel
-                                                               attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual
+    NSLayoutConstraint *lead =  [NSLayoutConstraint constraintWithItem:self.titleLabel
+                                                        attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual
                                                                   toItem:self.imageForTitle attribute:NSLayoutAttributeRight
                                                               multiplier:1.0 constant:10];
     
@@ -96,12 +96,14 @@
 {
     NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:self.descriptionLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.titleLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:10];
     
-    NSLayoutConstraint *lead =    [NSLayoutConstraint constraintWithItem:self.descriptionLabel
+    NSLayoutConstraint *lead = [NSLayoutConstraint constraintWithItem:self.descriptionLabel
                                                                attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual
                                                                   toItem:self.imageForTitle attribute:NSLayoutAttributeRight
                                                               multiplier:1.0 constant:10];
     
     NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:self.descriptionLabel attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:200];
+    
+    
     
     [self addConstraints:@[top,lead,width]];
     

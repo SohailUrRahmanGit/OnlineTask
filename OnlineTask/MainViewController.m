@@ -8,7 +8,7 @@
 //
 
 #import "MainViewController.h"
-
+#import "ModelClassForParsing.h"
 @interface MainViewController ()
 @end
 
@@ -19,19 +19,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self makeServiceCall];
+
+    
     _titleArray = [NSMutableArray arrayWithObjects:@"India", @"New Zealand",@"London", @"Germany",@"Saudi", nil];
     _descriptionArray = [NSMutableArray arrayWithObjects:
                          @"Place where i Live",
                          @"Bindog",
                          @"New second-largest state in the Arab world after Algeria. Saudi Arabia is bordered by Jordan and Iraq to the nort",
                          @"Place for tour",
-                         @"Officially the Kingdom of Saudi Arabia (KSA),[d] is a sovereign Arab state in Western Asia constituting the bulk of the Arabian Peninsula. With a land area of approximately 2,150,000 km2 (830,000 sq mi), Saudi Arabia is geographically the fifth-largest state in Asia and second-largest state in the Arab world after Algeria. Saudi Arabia is bordered by Jordan and Iraq to the north, Kuwait to the northeast, Qatar, Bahrain and the United Arab Emirates to the east, Oman to the southeast and Yemen to the south. It is separated from Israel and Egypt by the Gulf of Aqaba. It is the only nation with both a Red Sea coast and a Persian Gulf coast and most of its terrain consists of arid desert and mountains" , nil];
+                         @"A moose is a common sight in Canada. Tall and majestic, they represent many of the values which Canadians imagine that they possess. They grow up to 2.7 metres long and can weigh over 700 kg. They swim at 10 km/h. Moose antlers weigh roughly 20 kg. The plural of moose is actually 'meese', despite what most dictionaries, encyclopedias, and experts will tell you" , nil];
     
     tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     // must set delegate & dataSource, otherwise the the table will be empty and not responsive
     tableView.delegate = self;
     tableView.dataSource = self;
-    
     [tableView setTranslatesAutoresizingMaskIntoConstraints:NO];
     
     
@@ -39,7 +41,26 @@
     [self setContraints];
     
 }
+-(void)makeServiceCall
+{
+    NSURLConnectDelegateClass *testclass = [[NSURLConnectDelegateClass alloc]init];
+    
+    [testclass fetchURL:[NSURL URLWithString:API_URL] withCompletion:^(NSData *receivedData){
+        NSLog(@"%@",receivedData);
+        
+        NSDictionary *response =(NSDictionary *) receivedData;
+        NSError *pError;
+     //   ModelClassForParsing *parseData = [MTLJSONAdapter modelsOfClass:ModelClassForParsing.class fromJSONArray:response error:&pError];
+        ModelClassForParsing *parseData = [MTLJSONAdapter modelOfClass:ModelClassForParsing.class fromJSONDictionary:response error:&pError];
+        
 
+        NSLog(@"parseData %@", parseData);
+        
+    } failure:^(NSError *error){
+        NSLog(@"%@", error);
+    }];
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -59,8 +80,6 @@
     
     [self.view addConstraints:@[top,bottom,lead,trail]];
 }
-
-
 
 
 #pragma mark - UITableViewDataSource
@@ -85,10 +104,12 @@
         cell = [[CellForTableView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     // Just want to test, so I hardcode the data
-    NSString *descriptionString = [_descriptionArray objectAtIndex:indexPath.row];
-    CGRect newFrame = cell.descriptionLabel.frame;
-    newFrame.size.height = [self dynamicHeight:descriptionString :cell.descriptionLabel.font :newFrame :cell.descriptionLabel.lineBreakMode];
-    cell.descriptionLabel.frame = newFrame;
+//    NSString *descriptionString = [_descriptionArray objectAtIndex:indexPath.row];
+//    CGRect newFrame = cell.descriptionLabel.frame;
+//    newFrame.size.height = [self dynamicHeight:descriptionString :cell.descriptionLabel.font :newFrame :cell.descriptionLabel.lineBreakMode];
+//    cell.descriptionLabel.frame = newFrame;
+    
+    
     
     cell.descriptionLabel.text = [_descriptionArray objectAtIndex:indexPath.row];
     cell.titleLabel.text = [_titleArray objectAtIndex:indexPath.row];
@@ -97,18 +118,20 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    // return UITableViewAutomaticDimension;
-    CellForTableView *cell = (CellForTableView *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
-    NSString *descriptionString = [_descriptionArray objectAtIndex:indexPath.row];
-    CGRect newFrame = cell.descriptionLabel.frame;
-    newFrame.size.height = [self dynamicHeight:descriptionString :cell.descriptionLabel.font :newFrame :cell.descriptionLabel.lineBreakMode];
-    
-    if(newFrame.size.height >= 50)
-        return 100 + newFrame.size.height ;
-    else
+////    // return UITableViewAutomaticDimension;
+////    CellForTableView *cell = (CellForTableView *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
+////    NSString *descriptionString = [_descriptionArray objectAtIndex:indexPath.row];
+////    CGRect newFrame = cell.descriptionLabel.frame;
+////    newFrame.size.height = [self dynamicHeight:descriptionString :cell.descriptionLabel.font :newFrame :cell.descriptionLabel.lineBreakMode];
+////
+////    if(newFrame.size.height >= 50)
+////        return 100 + newFrame.size.height ;
+////    else
         return 100;
-    
+//
 }
+
+
 
 #pragma mark - UITableViewDelegate
 // when user tap the row, what action you want to perform
@@ -117,14 +140,14 @@
     NSLog(@"selected %ld row", (long)indexPath.row);
 }
 
--(NSUInteger) dynamicHeight:(NSString *)descriptionString :(UIFont *)font :(CGRect)cellFrame :(NSLineBreakMode)cellLineBreakMode{
-    CGSize maximumLabelSize = CGSizeMake(296, FLT_MAX);
-    CGSize expectedLabelSize = [descriptionString sizeWithFont:font constrainedToSize:maximumLabelSize lineBreakMode:cellLineBreakMode];
-    //adjust the label the the new height.
-    CGRect newFrame = cellFrame;
-    newFrame.size.height = expectedLabelSize.height;
-    return newFrame.size.height;
-}
+//-(NSUInteger) dynamicHeight:(NSString *)descriptionString :(UIFont *)font :(CGRect)cellFrame :(NSLineBreakMode)cellLineBreakMode{
+//    CGSize maximumLabelSize = CGSizeMake(296, FLT_MAX);
+//    CGSize expectedLabelSize = [descriptionString sizeWithFont:font constrainedToSize:maximumLabelSize lineBreakMode:cellLineBreakMode];
+//    //adjust the label the the new height.
+//    CGRect newFrame = cellFrame;
+//    newFrame.size.height = expectedLabelSize.height;
+//    return newFrame.size.height;
+//}
 
 @end
 

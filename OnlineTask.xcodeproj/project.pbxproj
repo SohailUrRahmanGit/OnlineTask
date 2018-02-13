@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7259B01F3AE8B56C0FA778ED /* libPods-OnlineTask.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4281BBF292D748DB89F02D5B /* libPods-OnlineTask.a */; };
 		C5397F63203204DE00EFE73B /* CellForTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5397F62203204DE00EFE73B /* CellForTableView.m */; };
+		C5397F692032CB2E00EFE73B /* NSURLConnectDelegateClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C5397F682032CB2E00EFE73B /* NSURLConnectDelegateClass.m */; };
+		C5397F6D2032E6A400EFE73B /* ModelClassForParsing.m in Sources */ = {isa = PBXBuildFile; fileRef = C5397F6C2032E6A400EFE73B /* ModelClassForParsing.m */; };
 		C54E2B1F2030C8E50024E111 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C54E2B1E2030C8E50024E111 /* AppDelegate.m */; };
 		C54E2B222030C8E50024E111 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C54E2B212030C8E50024E111 /* MainViewController.m */; };
 		C54E2B272030C8E50024E111 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C54E2B262030C8E50024E111 /* Assets.xcassets */; };
 		C54E2B2D2030C8E50024E111 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C54E2B2C2030C8E50024E111 /* main.m */; };
 		C54E2B372030C8E50024E111 /* OnlineTaskTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C54E2B362030C8E50024E111 /* OnlineTaskTests.m */; };
+		CD001B3BB59517C4B543ED5E /* libPods-OnlineTaskTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79E276A7099E51EC59390062 /* libPods-OnlineTaskTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,9 +30,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		08F525901203E0B6268DFA25 /* Pods-OnlineTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnlineTask.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OnlineTask/Pods-OnlineTask.debug.xcconfig"; sourceTree = "<group>"; };
+		4281BBF292D748DB89F02D5B /* libPods-OnlineTask.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OnlineTask.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		79E276A7099E51EC59390062 /* libPods-OnlineTaskTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OnlineTaskTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5397F602032009100EFE73B /* no_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = no_image.png; sourceTree = "<group>"; };
 		C5397F61203204DE00EFE73B /* CellForTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CellForTableView.h; sourceTree = "<group>"; };
 		C5397F62203204DE00EFE73B /* CellForTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CellForTableView.m; sourceTree = "<group>"; };
+		C5397F672032CB2E00EFE73B /* NSURLConnectDelegateClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSURLConnectDelegateClass.h; sourceTree = "<group>"; };
+		C5397F682032CB2E00EFE73B /* NSURLConnectDelegateClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSURLConnectDelegateClass.m; sourceTree = "<group>"; };
+		C5397F6A2032E1C000EFE73B /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		C5397F6B2032E6A400EFE73B /* ModelClassForParsing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelClassForParsing.h; sourceTree = "<group>"; };
+		C5397F6C2032E6A400EFE73B /* ModelClassForParsing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModelClassForParsing.m; sourceTree = "<group>"; };
 		C54E2B1A2030C8E50024E111 /* OnlineTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnlineTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C54E2B1D2030C8E50024E111 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C54E2B1E2030C8E50024E111 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -40,6 +52,9 @@
 		C54E2B322030C8E50024E111 /* OnlineTaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnlineTaskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C54E2B362030C8E50024E111 /* OnlineTaskTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OnlineTaskTests.m; sourceTree = "<group>"; };
 		C54E2B382030C8E50024E111 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D740ACB2C66BC40D277F1B16 /* Pods-OnlineTaskTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnlineTaskTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OnlineTaskTests/Pods-OnlineTaskTests.release.xcconfig"; sourceTree = "<group>"; };
+		DDD608C66AA363611413E386 /* Pods-OnlineTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnlineTask.release.xcconfig"; path = "Pods/Target Support Files/Pods-OnlineTask/Pods-OnlineTask.release.xcconfig"; sourceTree = "<group>"; };
+		F79C3D575972D7E47F98E650 /* Pods-OnlineTaskTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnlineTaskTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OnlineTaskTests/Pods-OnlineTaskTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7259B01F3AE8B56C0FA778ED /* libPods-OnlineTask.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,18 +70,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD001B3BB59517C4B543ED5E /* libPods-OnlineTaskTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		11DCCA2F7233EA302CBDE216 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4281BBF292D748DB89F02D5B /* libPods-OnlineTask.a */,
+				79E276A7099E51EC59390062 /* libPods-OnlineTaskTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C399D886702C93CC738696DB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				08F525901203E0B6268DFA25 /* Pods-OnlineTask.debug.xcconfig */,
+				DDD608C66AA363611413E386 /* Pods-OnlineTask.release.xcconfig */,
+				F79C3D575972D7E47F98E650 /* Pods-OnlineTaskTests.debug.xcconfig */,
+				D740ACB2C66BC40D277F1B16 /* Pods-OnlineTaskTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		C54E2B112030C8E50024E111 = {
 			isa = PBXGroup;
 			children = (
 				C54E2B1C2030C8E50024E111 /* OnlineTask */,
 				C54E2B352030C8E50024E111 /* OnlineTaskTests */,
 				C54E2B1B2030C8E50024E111 /* Products */,
+				C399D886702C93CC738696DB /* Pods */,
+				11DCCA2F7233EA302CBDE216 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -91,6 +130,11 @@
 				C54E2B2C2030C8E50024E111 /* main.m */,
 				C5397F61203204DE00EFE73B /* CellForTableView.h */,
 				C5397F62203204DE00EFE73B /* CellForTableView.m */,
+				C5397F672032CB2E00EFE73B /* NSURLConnectDelegateClass.h */,
+				C5397F682032CB2E00EFE73B /* NSURLConnectDelegateClass.m */,
+				C5397F6A2032E1C000EFE73B /* Constants.h */,
+				C5397F6B2032E6A400EFE73B /* ModelClassForParsing.h */,
+				C5397F6C2032E6A400EFE73B /* ModelClassForParsing.m */,
 			);
 			path = OnlineTask;
 			sourceTree = "<group>";
@@ -111,9 +155,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C54E2B3B2030C8E50024E111 /* Build configuration list for PBXNativeTarget "OnlineTask" */;
 			buildPhases = (
+				C5719909D817BB2E18D626C8 /* [CP] Check Pods Manifest.lock */,
 				C54E2B162030C8E50024E111 /* Sources */,
 				C54E2B172030C8E50024E111 /* Frameworks */,
 				C54E2B182030C8E50024E111 /* Resources */,
+				4A8CBA4811F4F48E9125AA56 /* [CP] Embed Pods Frameworks */,
+				6B53ED231E81E994839003A5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -128,9 +175,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C54E2B3E2030C8E50024E111 /* Build configuration list for PBXNativeTarget "OnlineTaskTests" */;
 			buildPhases = (
+				394B9EF15E6AF852E9AF2123 /* [CP] Check Pods Manifest.lock */,
 				C54E2B2E2030C8E50024E111 /* Sources */,
 				C54E2B2F2030C8E50024E111 /* Frameworks */,
 				C54E2B302030C8E50024E111 /* Resources */,
+				24E9EF2691675F340BAA133C /* [CP] Embed Pods Frameworks */,
+				EDD820A18C83E6436E0B1B93 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -199,15 +249,116 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		24E9EF2691675F340BAA133C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OnlineTaskTests/Pods-OnlineTaskTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		394B9EF15E6AF852E9AF2123 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OnlineTaskTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4A8CBA4811F4F48E9125AA56 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OnlineTask/Pods-OnlineTask-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6B53ED231E81E994839003A5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OnlineTask/Pods-OnlineTask-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C5719909D817BB2E18D626C8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OnlineTask-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EDD820A18C83E6436E0B1B93 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OnlineTaskTests/Pods-OnlineTaskTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C54E2B162030C8E50024E111 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5397F692032CB2E00EFE73B /* NSURLConnectDelegateClass.m in Sources */,
 				C54E2B222030C8E50024E111 /* MainViewController.m in Sources */,
 				C54E2B2D2030C8E50024E111 /* main.m in Sources */,
 				C54E2B1F2030C8E50024E111 /* AppDelegate.m in Sources */,
 				C5397F63203204DE00EFE73B /* CellForTableView.m in Sources */,
+				C5397F6D2032E6A400EFE73B /* ModelClassForParsing.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +487,7 @@
 		};
 		C54E2B3C2030C8E50024E111 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 08F525901203E0B6268DFA25 /* Pods-OnlineTask.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -351,6 +503,7 @@
 		};
 		C54E2B3D2030C8E50024E111 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDD608C66AA363611413E386 /* Pods-OnlineTask.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -366,6 +519,7 @@
 		};
 		C54E2B3F2030C8E50024E111 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F79C3D575972D7E47F98E650 /* Pods-OnlineTaskTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -381,6 +535,7 @@
 		};
 		C54E2B402030C8E50024E111 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D740ACB2C66BC40D277F1B16 /* Pods-OnlineTaskTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;

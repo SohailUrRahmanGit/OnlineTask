@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "CellForTableView.h"
-
+#import "NSURLConnectDelegateClass.h"
+#import "Constants.h"
 @interface MainViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
 @property(strong, nonatomic)NSMutableArray *titleArray;
