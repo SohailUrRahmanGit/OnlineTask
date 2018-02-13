@@ -19,8 +19,7 @@
         
         
         self.imageForTitle = [[UIImageView alloc]initWithFrame:CGRectMake(15, 8, 85, 85)];
-        self.imageForTitle.image = [UIImage imageNamed:@"no_image.png"];
-        self.imageForTitle.backgroundColor = [UIColor blueColor];
+        self.imageForTitle.image = [UIImage imageNamed:@"NoPicAvailable.png"];
         [self.imageForTitle setTranslatesAutoresizingMaskIntoConstraints:NO];
         [self addSubview:self.imageForTitle];
         [self addContraintsForImageForTitle];

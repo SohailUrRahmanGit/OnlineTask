@@ -36,7 +36,6 @@
 		79E276A7099E51EC59390062 /* libPods-OnlineTaskTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OnlineTaskTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C52DF68C20330E5B00474A91 /* RowModelData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RowModelData.h; sourceTree = "<group>"; };
 		C52DF68D20330E5B00474A91 /* RowModelData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RowModelData.m; sourceTree = "<group>"; };
-		C5397F602032009100EFE73B /* no_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = no_image.png; sourceTree = "<group>"; };
 		C5397F61203204DE00EFE73B /* CellForTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CellForTableView.h; sourceTree = "<group>"; };
 		C5397F62203204DE00EFE73B /* CellForTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CellForTableView.m; sourceTree = "<group>"; };
 		C5397F672032CB2E00EFE73B /* NSURLConnectDelegateClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSURLConnectDelegateClass.h; sourceTree = "<group>"; };
@@ -123,7 +122,6 @@
 		C54E2B1C2030C8E50024E111 /* OnlineTask */ = {
 			isa = PBXGroup;
 			children = (
-				C5397F602032009100EFE73B /* no_image.png */,
 				C54E2B1D2030C8E50024E111 /* AppDelegate.h */,
 				C54E2B1E2030C8E50024E111 /* AppDelegate.m */,
 				C54E2B202030C8E50024E111 /* MainViewController.h */,

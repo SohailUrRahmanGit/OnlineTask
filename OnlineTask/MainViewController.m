@@ -119,7 +119,8 @@
     
     // Similar to UITableViewCell, but
     CellForTableView *cell = (CellForTableView *)[theTableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (cell == nil) {
+    if (cell == nil)
+    {
         cell = [[CellForTableView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     // Just want to test, so I hardcode the data
@@ -129,8 +130,7 @@
 //    cell.descriptionLabel.frame = newFrame;
     
     
-    
-   cell.descriptionLabel.text = [_descriptionArray objectAtIndex:indexPath.row];
+    cell.descriptionLabel.text = [_descriptionArray objectAtIndex:indexPath.row];
     cell.titleLabel.text = [_titleArray objectAtIndex:indexPath.row];
     
     return cell;
