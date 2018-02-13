@@ -7,6 +7,7 @@
 //
 
 #import "ModelClassForParsing.h"
+#import "RowModelData.h"
 
 @implementation ModelClassForParsing
 
@@ -17,7 +18,9 @@
                  @"rowsArray" : @"rows"
                  };
 }
-    
-
+#pragma mark - JSON Transformer
++ (NSValueTransformer *)rowsArrayJSONTransformer {
+    return [MTLJSONAdapter arrayTransformerWithModelClass:RowModelData.class];
+}
 
 @end

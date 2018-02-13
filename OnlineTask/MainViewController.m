@@ -9,6 +9,7 @@
 
 #import "MainViewController.h"
 #import "ModelClassForParsing.h"
+#import "RowModelData.h"
 @interface MainViewController ()
 @end
 
@@ -26,19 +27,11 @@
     
     refreshController = [[UIRefreshControl alloc] init];
 
-    _titleArray = [NSMutableArray arrayWithObjects:@"India", @"New Zealand",@"London", @"Germany",@"Saudi", nil];
-    _descriptionArray = [NSMutableArray arrayWithObjects:
-                         @"Place where i Live",
-                         @"Bindog",
-                         @"New second-largest state in the Arab world after Algeria. Saudi Arabia is bordered by Jordan and Iraq to the nort",
-                         @"Place for tour",
-                         @"A moose is a common sight in Canada. Tall and majestic, they represent many of the values which Canadians imagine that they possess. They grow up to 2.7 metres long and can weigh over 700 kg. They swim at 10 km/h. Moose antlers weigh roughly 20 kg. The plural of moose is actually 'meese', despite what most dictionaries, encyclopedias, and experts will tell you" , nil];
-    
     tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     // must set delegate & dataSource, otherwise the the table will be empty and not responsive
     tableView.delegate = self;
     tableView.dataSource = self;
-    tableView.estimatedRowHeight = 100 ;
+    tableView.estimatedRowHeight = TABLEVIEW_ROW_ESTIMATE_HEIGHT ;
     [tableView setTranslatesAutoresizingMaskIntoConstraints:NO];
     tableView.rowHeight = UITableViewAutomaticDimension ;
 
@@ -51,25 +44,25 @@
     [self setContraints];
     
 }
--(void)makeServiceCall
-{
+-(void)makeServiceCall{
     NSURLConnectDelegateClass *testclass = [[NSURLConnectDelegateClass alloc]init];
-   
     [testclass fetchURL:[NSURL URLWithString:API_URL] withCompletion:^(NSData *receivedData){
         NSError* error;
         NSString *iso = [[NSString alloc] initWithData:receivedData encoding:NSISOLatin1StringEncoding];
         NSData *dutf8 = [iso dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:dutf8 options:NSJSONReadingMutableContainers error:&error];
         NSError *pError;
-
-       ModelClassForParsing *  parseData = [MTLJSONAdapter modelOfClass:ModelClassForParsing.class fromJSONDictionary:dict error:&pError];
-                NSLog(@"parseData %@", parseData);
+        ModelClassForParsing *  parseData = [MTLJSONAdapter modelOfClass:ModelClassForParsing.class fromJSONDictionary:dict error:&pError];
+        _rows = parseData.rowsArray;
+        
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [tableView reloadData];
+        });
         
     } failure:^(NSError *error){
         NSLog(@"%@", error);
     }];
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -81,7 +74,6 @@
 
 -(void)handleRefresh : (id)sender
 {
-    NSLog (@"Pull To Refresh Method Called");
     [refreshController endRefreshing];
 }
 
@@ -110,13 +102,13 @@
 // number of row in the section, I assume there is only 1 row
 - (NSInteger)tableView:(UITableView *)theTableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_descriptionArray count];
+    return [_rows count];
 }
 // the cell will be returned to the tableView
 - (UITableViewCell *)tableView:(UITableView *)theTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellIdentifier = @"DataCell";
-    
+    static NSString *cellIdentifier = TABLEVIEW_CELL_ID;
+
     // Similar to UITableViewCell, but
     CellForTableView *cell = (CellForTableView *)[theTableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil)
@@ -130,13 +122,15 @@
 //    cell.descriptionLabel.frame = newFrame;
     
     
-    cell.descriptionLabel.text = [_descriptionArray objectAtIndex:indexPath.row];
-    cell.titleLabel.text = [_titleArray objectAtIndex:indexPath.row];
+    RowModelData *dataFromRowArray = _rows [indexPath.row];
+    
+    
+    cell.descriptionLabel.text = dataFromRowArray.rowDescription;
+    cell.titleLabel.text = dataFromRowArray.rowTitle;
+    cell.imageView.image = [UIImage imageNamed:@"NoPicAvailable.png"];
     
     return cell;
 }
-
-
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

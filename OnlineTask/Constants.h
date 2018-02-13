@@ -10,4 +10,6 @@
 #define Constants_h
 
 #define API_URL @"https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json"
+#define TABLEVIEW_ROW_ESTIMATE_HEIGHT 100
+#define TABLEVIEW_CELL_ID @"DataCell"
 #endif /* Constants_h */

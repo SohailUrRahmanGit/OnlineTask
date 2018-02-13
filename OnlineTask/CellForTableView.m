@@ -19,7 +19,6 @@
         
         
         self.imageForTitle = [[UIImageView alloc]initWithFrame:CGRectMake(15, 8, 85, 85)];
-        self.imageForTitle.image = [UIImage imageNamed:@"NoPicAvailable.png"];
         [self.imageForTitle setTranslatesAutoresizingMaskIntoConstraints:NO];
         [self addSubview:self.imageForTitle];
         [self addContraintsForImageForTitle];

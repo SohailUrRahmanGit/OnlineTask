@@ -12,8 +12,8 @@
 #import "Constants.h"
 @interface MainViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
-@property(strong, nonatomic)NSMutableArray *titleArray;
-@property(strong, nonatomic)NSMutableArray *descriptionArray;
+
+@property(strong, nonatomic)NSArray *rows;
 
 @end
 
