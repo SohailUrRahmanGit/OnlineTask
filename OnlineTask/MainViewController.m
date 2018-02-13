@@ -15,13 +15,17 @@
 @implementation MainViewController
 {
     UITableView *tableView;
+    UIRefreshControl *refreshController;
 }
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self makeServiceCall];
 
     
+    refreshController = [[UIRefreshControl alloc] init];
+
     _titleArray = [NSMutableArray arrayWithObjects:@"India", @"New Zealand",@"London", @"Germany",@"Saudi", nil];
     _descriptionArray = [NSMutableArray arrayWithObjects:
                          @"Place where i Live",
@@ -34,7 +38,13 @@
     // must set delegate & dataSource, otherwise the the table will be empty and not responsive
     tableView.delegate = self;
     tableView.dataSource = self;
+    tableView.estimatedRowHeight = 100 ;
     [tableView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    tableView.rowHeight = UITableViewAutomaticDimension ;
+
+    
+    [refreshController addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
+    [tableView addSubview:refreshController];
     
     
     [self.view addSubview:tableView];
@@ -44,21 +54,21 @@
 -(void)makeServiceCall
 {
     NSURLConnectDelegateClass *testclass = [[NSURLConnectDelegateClass alloc]init];
-    
+   
     [testclass fetchURL:[NSURL URLWithString:API_URL] withCompletion:^(NSData *receivedData){
-        NSLog(@"%@",receivedData);
-        
-        NSDictionary *response =(NSDictionary *) receivedData;
+        NSError* error;
+        NSString *iso = [[NSString alloc] initWithData:receivedData encoding:NSISOLatin1StringEncoding];
+        NSData *dutf8 = [iso dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:dutf8 options:NSJSONReadingMutableContainers error:&error];
         NSError *pError;
-     //   ModelClassForParsing *parseData = [MTLJSONAdapter modelsOfClass:ModelClassForParsing.class fromJSONArray:response error:&pError];
-        ModelClassForParsing *parseData = [MTLJSONAdapter modelOfClass:ModelClassForParsing.class fromJSONDictionary:response error:&pError];
-        
 
-        NSLog(@"parseData %@", parseData);
+       ModelClassForParsing *  parseData = [MTLJSONAdapter modelOfClass:ModelClassForParsing.class fromJSONDictionary:dict error:&pError];
+                NSLog(@"parseData %@", parseData);
         
     } failure:^(NSError *error){
         NSLog(@"%@", error);
     }];
+    
     
 }
 
@@ -67,9 +77,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Handle Refresh Method
+
+-(void)handleRefresh : (id)sender
+{
+    NSLog (@"Pull To Refresh Method Called");
+    [refreshController endRefreshing];
+}
+
 #pragma mark - SetContraints
 -(void)setContraints
 {
+
     NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:tableView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1 constant:0];
     
     NSLayoutConstraint *lead = [NSLayoutConstraint constraintWithItem:tableView attribute:NSLayoutAttributeLeading   relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1 constant:0];
@@ -111,11 +130,14 @@
     
     
     
-    cell.descriptionLabel.text = [_descriptionArray objectAtIndex:indexPath.row];
+   cell.descriptionLabel.text = [_descriptionArray objectAtIndex:indexPath.row];
     cell.titleLabel.text = [_titleArray objectAtIndex:indexPath.row];
     
     return cell;
 }
+
+
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 ////    // return UITableViewAutomaticDimension;

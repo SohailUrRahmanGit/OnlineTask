@@ -13,10 +13,9 @@
 + (NSDictionary *)JSONKeyPathsByPropertyKey
 {
         return @{
-                 @"navigationTitle" : @"navTitle",
-                 @"rowsArray" : @"rowArrayData"
+                 @"navigationTitle" : @"title",
+                 @"rowsArray" : @"rows"
                  };
-    
 }
     
 

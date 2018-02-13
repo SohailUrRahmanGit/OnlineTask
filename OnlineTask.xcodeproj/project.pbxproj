@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7259B01F3AE8B56C0FA778ED /* libPods-OnlineTask.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4281BBF292D748DB89F02D5B /* libPods-OnlineTask.a */; };
+		C52DF68E20330E5B00474A91 /* RowModelData.m in Sources */ = {isa = PBXBuildFile; fileRef = C52DF68D20330E5B00474A91 /* RowModelData.m */; };
 		C5397F63203204DE00EFE73B /* CellForTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5397F62203204DE00EFE73B /* CellForTableView.m */; };
 		C5397F692032CB2E00EFE73B /* NSURLConnectDelegateClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C5397F682032CB2E00EFE73B /* NSURLConnectDelegateClass.m */; };
 		C5397F6D2032E6A400EFE73B /* ModelClassForParsing.m in Sources */ = {isa = PBXBuildFile; fileRef = C5397F6C2032E6A400EFE73B /* ModelClassForParsing.m */; };
@@ -33,6 +34,8 @@
 		08F525901203E0B6268DFA25 /* Pods-OnlineTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnlineTask.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OnlineTask/Pods-OnlineTask.debug.xcconfig"; sourceTree = "<group>"; };
 		4281BBF292D748DB89F02D5B /* libPods-OnlineTask.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OnlineTask.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		79E276A7099E51EC59390062 /* libPods-OnlineTaskTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OnlineTaskTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C52DF68C20330E5B00474A91 /* RowModelData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RowModelData.h; sourceTree = "<group>"; };
+		C52DF68D20330E5B00474A91 /* RowModelData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RowModelData.m; sourceTree = "<group>"; };
 		C5397F602032009100EFE73B /* no_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = no_image.png; sourceTree = "<group>"; };
 		C5397F61203204DE00EFE73B /* CellForTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CellForTableView.h; sourceTree = "<group>"; };
 		C5397F62203204DE00EFE73B /* CellForTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CellForTableView.m; sourceTree = "<group>"; };
@@ -135,6 +138,8 @@
 				C5397F6A2032E1C000EFE73B /* Constants.h */,
 				C5397F6B2032E6A400EFE73B /* ModelClassForParsing.h */,
 				C5397F6C2032E6A400EFE73B /* ModelClassForParsing.m */,
+				C52DF68C20330E5B00474A91 /* RowModelData.h */,
+				C52DF68D20330E5B00474A91 /* RowModelData.m */,
 			);
 			path = OnlineTask;
 			sourceTree = "<group>";
@@ -354,6 +359,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5397F692032CB2E00EFE73B /* NSURLConnectDelegateClass.m in Sources */,
+				C52DF68E20330E5B00474A91 /* RowModelData.m in Sources */,
 				C54E2B222030C8E50024E111 /* MainViewController.m in Sources */,
 				C54E2B2D2030C8E50024E111 /* main.m in Sources */,
 				C54E2B1F2030C8E50024E111 /* AppDelegate.m in Sources */,
