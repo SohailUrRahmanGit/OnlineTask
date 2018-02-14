@@ -9,6 +9,7 @@
 #import "MTLModel.h"
 #import "MTLJSONAdapter.h"
 
+//Mantle model class
 @interface ModelClassForParsing : MTLModel<MTLJSONSerializing>
 
 @property(nonatomic,copy)NSString *navigationTitle;

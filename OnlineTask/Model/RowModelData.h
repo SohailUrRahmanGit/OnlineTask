@@ -9,6 +9,7 @@
 #import "MTLModel.h"
 #import "MTLJSONAdapter.h"
 
+//Mantle model class
 @interface RowModelData : MTLModel<MTLJSONSerializing>
 @property(nonatomic,copy)NSString *rowTitle;
 @property(nonatomic,copy)NSString *rowDescription;

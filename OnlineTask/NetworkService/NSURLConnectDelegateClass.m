@@ -42,6 +42,7 @@
     return self;
 }
 
+//NSURL conpletion handler
 -(void)fetchURL:(NSURL *)url withCompletion:(NSURLConnectDelegateClassSuccess)completion failure:(NSURLConnectDelegateClassFailure)failure {
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:self.cachePolicy timeoutInterval:self.timeout];
     SampleURLConnection *connection = [[SampleURLConnection alloc] initWithRequest:request delegate:self startImmediately:NO];
@@ -59,6 +60,7 @@
     [self.connections addObject:connection];
 }
 
+//Cancel service calls method
 - (void)cancelAllCalls {
     [self.networkQueue setSuspended:YES];
     [self.networkQueue cancelAllOperations];

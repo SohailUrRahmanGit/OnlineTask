@@ -131,6 +131,7 @@
 				C5397F6A2032E1C000EFE73B /* Constants.h */,
 				C54E2B202030C8E50024E111 /* MainViewController.h */,
 				C54E2B212030C8E50024E111 /* MainViewController.m */,
+				C54E2B2B2030C8E50024E111 /* Info.plist */,
 				C54E2B262030C8E50024E111 /* Assets.xcassets */,
 			);
 			path = OnlineTask;
@@ -177,7 +178,6 @@
 		C5798BFB2034B91400A06EC2 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				C54E2B2B2030C8E50024E111 /* Info.plist */,
 				C54E2B2C2030C8E50024E111 /* main.m */,
 			);
 			path = SupportingFiles;

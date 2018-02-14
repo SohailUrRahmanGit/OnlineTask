@@ -7,15 +7,18 @@
 //
 
 #import <XCTest/XCTest.h>
+#import"MainViewController.h"
 
 @interface OnlineTaskTests : XCTestCase
-
+@property MainViewController *mainVCUnitTestobj;
 @end
 
 @implementation OnlineTaskTests
 
 - (void)setUp {
     [super setUp];
+   _mainVCUnitTestobj = [[MainViewController alloc]init];
+    
     // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
@@ -24,10 +27,14 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
-}
+
+
+//- (void)testTitlePresent {
+//    NSString *naviTitle =  _mainVCUnitTestobj.navigationItem.title ;
+//    NSString *expectedNavTitle = @"About Canada";
+//    XCTAssertEqual(naviTitle, expectedNavTitle);
+//
+//}
 
 - (void)testPerformanceExample {
     // This is an example of a performance test case.

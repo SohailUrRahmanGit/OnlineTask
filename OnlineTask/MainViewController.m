@@ -25,10 +25,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self makeServiceCall];
-
     
     refreshController = [[UIRefreshControl alloc] init];
-
     tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     // must set delegate & dataSource, otherwise the the table will be empty and not responsive
     tableView.delegate = self;
@@ -46,12 +44,11 @@
     [self setContraints];
     
 }
--(void)makeServiceCall{
-    
 
-    
-    
-    
+//This Method Calls the service and stores the data in Manel Model for parsing
+-(void)makeServiceCall
+{
+
     NSURLConnectDelegateClass *testclass = [[NSURLConnectDelegateClass alloc]init];
     [testclass fetchURL:[NSURL URLWithString:API_URL] withCompletion:^(NSData *receivedData){
         NSError* error;
@@ -78,7 +75,7 @@
                                                               handler:^(UIAlertAction * action) {}];
         
         [alert addAction:defaultAction];
-             [self presentViewController:alert animated:YES completion:nil];
+        [self presentViewController:alert animated:YES completion:nil];
         
          });
 
@@ -141,7 +138,7 @@
     return cell;
 }
 
-
+// Set the cell height according to the size of description text
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     CGFloat height = 0.0;
     CellForTableView *cell = (CellForTableView *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
@@ -150,7 +147,6 @@
     return height+85;
     
 }
-
 #pragma mark - UITableViewDelegate
 // when user tap the row, what action you want to perform
 - (void)tableView:(UITableView *)theTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -158,14 +154,6 @@
     NSLog(@"selected %ld row", (long)indexPath.row);
 }
 
--(NSUInteger) dynamicHeight:(NSString *)descriptionString :(UIFont *)font :(CGRect)cellFrame :(NSLineBreakMode)cellLineBreakMode{
-    CGSize maximumLabelSize = CGSizeMake(296, FLT_MAX);
-    CGSize expectedLabelSize = [descriptionString sizeWithFont:font constrainedToSize:maximumLabelSize lineBreakMode:cellLineBreakMode];
-    //adjust the label the the new height.
-    CGRect newFrame = cellFrame;
-    newFrame.size.height = expectedLabelSize.height;
-    return newFrame.size.height;
-}
 
 @end
 
