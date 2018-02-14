@@ -64,7 +64,7 @@
 -(void)addContraintsForImageForTitle
 {
     [self.imageForTitle setTranslatesAutoresizingMaskIntoConstraints:NO];
-    NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:self.imageForTitle attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1 constant:8];
+ //   NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:self.imageForTitle attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1 constant:8];
     
     NSLayoutConstraint *lead = [NSLayoutConstraint constraintWithItem:self.imageForTitle attribute:NSLayoutAttributeLeading   relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeading multiplier:1 constant:15];
     
@@ -72,7 +72,7 @@
     NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:self.imageForTitle attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:85];
     NSLayoutConstraint *horizongalContainer = [NSLayoutConstraint constraintWithItem:self.imageForTitle attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterY multiplier:1 constant:0];
     
-    [self addConstraints:@[top,lead,height,width,horizongalContainer]];
+    [self addConstraints:@[lead,height,width,horizongalContainer]];
     
 }
 
