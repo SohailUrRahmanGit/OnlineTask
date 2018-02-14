@@ -5,6 +5,8 @@ target 'OnlineTask' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
   # use_frameworks!
 pod 'Mantle'
+pod 'SDWebImage', '~> 4.0'
+
   # Pods for OnlineTask
 
   target 'OnlineTaskTests' do

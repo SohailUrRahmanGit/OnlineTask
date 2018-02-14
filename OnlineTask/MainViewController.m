@@ -8,8 +8,10 @@
 //
 
 #import "MainViewController.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 #import "ModelClassForParsing.h"
 #import "RowModelData.h"
+
 @interface MainViewController ()
 @end
 
@@ -128,44 +130,26 @@
 {
     static NSString *cellIdentifier = TABLEVIEW_CELL_ID;
     RowModelData *dataFromRowArray = _rows [indexPath.row];
-
-    // Similar to UITableViewCell, but
     CellForTableView *cell = (CellForTableView *)[theTableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (cell == nil)
-    {
+    if (cell == nil){
         cell = [[CellForTableView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-//    NSString *descriptionString = dataFromRowArray.rowDescription ;
-//    CGRect newFrame = cell.descriptionLabel.frame;
-//    newFrame.size.height = [self dynamicHeight:descriptionString :cell.descriptionLabel.font :newFrame :cell.descriptionLabel.lineBreakMode];
-//    cell.descriptionLabel.frame = newFrame;
-    
-    
+    [cell.imageForTitle sd_setImageWithURL:[NSURL URLWithString:dataFromRowArray.rowImageURL]
+                          placeholderImage:[UIImage imageNamed:@"NoPicAvailable"]];
     cell.descriptionLabel.text = dataFromRowArray.rowDescription;
     cell.titleLabel.text = dataFromRowArray.rowTitle;
-    cell.imageView.image = [UIImage imageNamed:@"NoPicAvailable.png"];
-    NSLog(@"BILKOOO %f", cell.descriptionLabel.frame.size.height);
     return cell;
 }
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-////    // return UITableViewAutomaticDimension;
-////    CellForTableView *cell = (CellForTableView *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
-////    NSString *descriptionString = [_descriptionArray objectAtIndex:indexPath.row];
-////    CGRect newFrame = cell.descriptionLabel.frame;
-////    newFrame.size.height = [self dynamicHeight:descriptionString :cell.descriptionLabel.font :newFrame :cell.descriptionLabel.lineBreakMode];
-////
-////    if(newFrame.size.height >= 50)
-////        return 100 + newFrame.size.height ;
-////    else
+    CGFloat height = 0.0;
+    CellForTableView *cell = (CellForTableView *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
+    NSString *text = cell.descriptionLabel.text;
+    height = [text sizeWithFont:[UIFont systemFontOfSize:10.0f] constrainedToSize:CGSizeMake(240, 300) lineBreakMode:NSLineBreakByWordWrapping].height;
+    return height+85;
     
-    return 100;
-
 }
-
-
-
 
 #pragma mark - UITableViewDelegate
 // when user tap the row, what action you want to perform

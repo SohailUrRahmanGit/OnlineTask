@@ -2,13 +2,18 @@ PODS:
   - Mantle (2.1.0):
     - Mantle/extobjc (= 2.1.0)
   - Mantle/extobjc (2.1.0)
+  - SDWebImage (4.3.0):
+    - SDWebImage/Core (= 4.3.0)
+  - SDWebImage/Core (4.3.0)
 
 DEPENDENCIES:
   - Mantle
+  - SDWebImage (~> 4.0)
 
 SPEC CHECKSUMS:
   Mantle: 2fa750afa478cd625a94230fbf1c13462f29395b
+  SDWebImage: 6da6c8bca115addc4de8613362e1b15f66333825
 
-PODFILE CHECKSUM: 8987148240ea97fe4ca6fc4a3c80a2ab7cb6c261
+PODFILE CHECKSUM: 1244e60ff8fa2e37fbe88070530e0a5c50fb996a
 
 COCOAPODS: 1.4.0
