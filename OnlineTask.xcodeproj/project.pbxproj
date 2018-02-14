@@ -122,22 +122,16 @@
 		C54E2B1C2030C8E50024E111 /* OnlineTask */ = {
 			isa = PBXGroup;
 			children = (
+				C5798BFB2034B91400A06EC2 /* SupportingFiles */,
+				C5798BFA2034B8F100A06EC2 /* Model */,
+				C5798BF92034B8D700A06EC2 /* NetworkService */,
+				C5798BF82034B8A900A06EC2 /* GUIComponent */,
 				C54E2B1D2030C8E50024E111 /* AppDelegate.h */,
 				C54E2B1E2030C8E50024E111 /* AppDelegate.m */,
+				C5397F6A2032E1C000EFE73B /* Constants.h */,
 				C54E2B202030C8E50024E111 /* MainViewController.h */,
 				C54E2B212030C8E50024E111 /* MainViewController.m */,
 				C54E2B262030C8E50024E111 /* Assets.xcassets */,
-				C54E2B2B2030C8E50024E111 /* Info.plist */,
-				C54E2B2C2030C8E50024E111 /* main.m */,
-				C5397F61203204DE00EFE73B /* CellForTableView.h */,
-				C5397F62203204DE00EFE73B /* CellForTableView.m */,
-				C5397F672032CB2E00EFE73B /* NSURLConnectDelegateClass.h */,
-				C5397F682032CB2E00EFE73B /* NSURLConnectDelegateClass.m */,
-				C5397F6A2032E1C000EFE73B /* Constants.h */,
-				C5397F6B2032E6A400EFE73B /* ModelClassForParsing.h */,
-				C5397F6C2032E6A400EFE73B /* ModelClassForParsing.m */,
-				C52DF68C20330E5B00474A91 /* RowModelData.h */,
-				C52DF68D20330E5B00474A91 /* RowModelData.m */,
 			);
 			path = OnlineTask;
 			sourceTree = "<group>";
@@ -149,6 +143,44 @@
 				C54E2B382030C8E50024E111 /* Info.plist */,
 			);
 			path = OnlineTaskTests;
+			sourceTree = "<group>";
+		};
+		C5798BF82034B8A900A06EC2 /* GUIComponent */ = {
+			isa = PBXGroup;
+			children = (
+				C5397F61203204DE00EFE73B /* CellForTableView.h */,
+				C5397F62203204DE00EFE73B /* CellForTableView.m */,
+			);
+			path = GUIComponent;
+			sourceTree = "<group>";
+		};
+		C5798BF92034B8D700A06EC2 /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				C5397F672032CB2E00EFE73B /* NSURLConnectDelegateClass.h */,
+				C5397F682032CB2E00EFE73B /* NSURLConnectDelegateClass.m */,
+			);
+			path = NetworkService;
+			sourceTree = "<group>";
+		};
+		C5798BFA2034B8F100A06EC2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C5397F6B2032E6A400EFE73B /* ModelClassForParsing.h */,
+				C5397F6C2032E6A400EFE73B /* ModelClassForParsing.m */,
+				C52DF68C20330E5B00474A91 /* RowModelData.h */,
+				C52DF68D20330E5B00474A91 /* RowModelData.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C5798BFB2034B91400A06EC2 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				C54E2B2B2030C8E50024E111 /* Info.plist */,
+				C54E2B2C2030C8E50024E111 /* main.m */,
+			);
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

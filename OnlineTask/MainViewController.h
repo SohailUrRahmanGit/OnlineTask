@@ -14,6 +14,7 @@
 
 
 @property(strong, nonatomic)NSArray *rows;
+@property(strong, nonatomic)UITableView *tableView;
 
 @end
 

@@ -17,9 +17,9 @@
 
 @implementation MainViewController
 {
-    UITableView *tableView;
     UIRefreshControl *refreshController;
 }
+@synthesize tableView;
 
 
 - (void)viewDidLoad {
