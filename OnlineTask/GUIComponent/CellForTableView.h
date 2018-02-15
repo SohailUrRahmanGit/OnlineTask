@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface CellForTableView : UITableViewCell
-@property (nonatomic, strong) UILabel *titleLabel;
-@property (nonatomic, strong) UILabel *descriptionLabel;
-@property (nonatomic,strong) UIImageView *imageForTitle;
+@property (nonatomic, strong) UILabel *titleLabel; /*cell's Title table*/
+@property (nonatomic, strong) UILabel *descriptionLabel; /*cell's Description Label*/
+@property (nonatomic,strong) UIImageView *imageForTitle; /*Cell's image view*/
 @end

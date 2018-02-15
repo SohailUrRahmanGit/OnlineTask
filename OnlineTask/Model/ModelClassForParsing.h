@@ -9,10 +9,12 @@
 #import "MTLModel.h"
 #import "MTLJSONAdapter.h"
 
-//Mantle model class
 @interface ModelClassForParsing : MTLModel<MTLJSONSerializing>
 
+/** Title of Content. Eg:"title" **/
 @property(nonatomic,copy)NSString *navigationTitle;
+/** List of Rows. Eg:"rows" **/
 @property(nonatomic,copy)NSArray *rowsArray;
 
 @end
+
