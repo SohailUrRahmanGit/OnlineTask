@@ -17,15 +17,21 @@
 
 @implementation MainViewController
 {
+    /*
+     Used to handle refresh when table is swiped down
+     */
     UIRefreshControl *refreshController;
 }
 @synthesize tableView;
 
 
+/*
+Loads the view and adds the table view. Also calls for service when ever view is loaded
+ */
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self makeServiceCall];
     
+    [self makeServiceCall];
     refreshController = [[UIRefreshControl alloc] init];
     tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     // must set delegate & dataSource, otherwise the the table will be empty and not responsive
@@ -34,7 +40,6 @@
     tableView.estimatedRowHeight = TABLEVIEW_ROW_ESTIMATE_HEIGHT ;
     [tableView setTranslatesAutoresizingMaskIntoConstraints:NO];
     tableView.rowHeight = UITableViewAutomaticDimension ;
-
     
     [refreshController addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
     [tableView addSubview:refreshController];
@@ -45,10 +50,14 @@
     
 }
 
-//This Method Calls the service and stores the data in Manel Model for parsing
+/*
+ -creates a connection delegate and calls fetch url method.
+ -API_URL is a constant which hold the url.You can have the value of API_URL in Constants.h file
+ -ModelClass for parsing is uses Mantle API for parsing and create a model of the response
+ -MAntel a model layer framework which assists with mapping JSON to models and vice versa.
+ */
 -(void)makeServiceCall
 {
-
     NSURLConnectDelegateClass *testclass = [[NSURLConnectDelegateClass alloc]init];
     [testclass fetchURL:[NSURL URLWithString:API_URL] withCompletion:^(NSData *receivedData){
         NSError* error;
@@ -87,18 +96,23 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Handle Refresh Method
 
+/*
+ Handle Refresh method is called when table is refreshed it calles the URL request and reloads the data from service
+ */
+#pragma mark - Handle Refresh Method
 -(void)handleRefresh : (id)sender
 {
     [self makeServiceCall];
     [refreshController endRefreshing];
 }
 
+/*
+ Programatical constraints set to table view. Table view Top,Lead,Trail,Bottom are pinned to the super view
+ */
 #pragma mark - SetContraints
 -(void)setContraints
 {
-
     NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:tableView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1 constant:0];
     
     NSLayoutConstraint *lead = [NSLayoutConstraint constraintWithItem:tableView attribute:NSLayoutAttributeLeading   relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1 constant:0];
@@ -111,18 +125,18 @@
 }
 
 
-#pragma mark - UITableViewDataSource
-// number of section(s), now I assume there is only 1 section
+#pragma mark - UITableViewDelegate
+/* number of section(s), now I assume there is only 1 section */
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)theTableView
 {
     return 1;
 }
-// number of row in the section, I assume there is only 1 row
+/*  number of row in the section, I assume there is only 1 row */
 - (NSInteger)tableView:(UITableView *)theTableView numberOfRowsInSection:(NSInteger)section
 {
     return [_rows count];
 }
-// the cell will be returned to the tableView
+/* the cell will be returned to the tableView */
 - (UITableViewCell *)tableView:(UITableView *)theTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellIdentifier = TABLEVIEW_CELL_ID;
@@ -138,7 +152,7 @@
     return cell;
 }
 
-// Set the cell height according to the size of description text
+/* Set the cell height according to the size of description text */
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     CGFloat height = 0.0;
     CellForTableView *cell = (CellForTableView *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
@@ -147,8 +161,7 @@
     return height+85;
     
 }
-#pragma mark - UITableViewDelegate
-// when user tap the row, what action you want to perform
+/* when user tap the row, what action you want to perform */
 - (void)tableView:(UITableView *)theTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"selected %ld row", (long)indexPath.row);

@@ -14,7 +14,6 @@
 @property (nonatomic,readwrite,strong) NSURLConnectDelegateClassFailure failure;
 @property (nonatomic,readwrite,strong) NSMutableData *data;
 @property (nonatomic,readwrite,strong) NSURLResponse *response;
-
 @end
 
 @implementation SampleURLConnection
@@ -42,8 +41,10 @@
     return self;
 }
 
-//NSURL conpletion handler
--(void)fetchURL:(NSURL *)url withCompletion:(NSURLConnectDelegateClassSuccess)completion failure:(NSURLConnectDelegateClassFailure)failure {
+/*
+Fetch Url method created a URL request and created a request and starts the connection
+  */
+ -(void)fetchURL:(NSURL *)url withCompletion:(NSURLConnectDelegateClassSuccess)completion failure:(NSURLConnectDelegateClassFailure)failure {
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:self.cachePolicy timeoutInterval:self.timeout];
     SampleURLConnection *connection = [[SampleURLConnection alloc] initWithRequest:request delegate:self startImmediately:NO];
     if (!connection) {
@@ -60,7 +61,9 @@
     [self.connections addObject:connection];
 }
 
-//Cancel service calls method
+/*
+ Use this method if u want to cancel the connection request
+ */
 - (void)cancelAllCalls {
     [self.networkQueue setSuspended:YES];
     [self.networkQueue cancelAllOperations];
@@ -75,7 +78,10 @@
 }
 
 #pragma mark - NSURLConnectionDelegate
-
+/*
+ Connection delegate methods called when connection recived a response , a error or when receive response data or connection finish its loading.
+ These methds further append data when receive data from a connection
+ */
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     SampleURLConnection *exConnection = (SampleURLConnection *)connection;
     exConnection.failure(error);

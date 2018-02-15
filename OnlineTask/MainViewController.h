@@ -12,8 +12,7 @@
 #import "Constants.h"
 @interface MainViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
-
-@property(strong, nonatomic)NSArray *rows;
+@property(strong, nonatomic)NSArray *rows;    // Rows will hold data of Rows array present response receicved from a given URL
 @property(strong, nonatomic)UITableView *tableView;
 
 @end
